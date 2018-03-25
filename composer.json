@@ -1,0 +1,22 @@
+{
+    "name": "fmwww/passport-wechat-oauth-grant",
+    "description": "Wechat Oauth Grant For Passport",
+    "authors": [
+        {
+            "name": "FMW",
+            "email": "1009208036@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "laravel/passport": "^6.0@dev",
+        "guzzlehttp/guzzle": "^6.3@dev"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Fmwww\\PassportWechatOauthGrant\\WechatOauthGrantServiceProvider"
+            ]
+        }
+    }
+}
