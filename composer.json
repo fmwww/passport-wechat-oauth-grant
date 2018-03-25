@@ -12,6 +12,11 @@
         "laravel/passport": "^6.0@dev",
         "guzzlehttp/guzzle": "^6.3@dev"
     },
+    "autoload": {
+        "psr-4": {
+            "Fmwww\\PassportWechatOauthGrant\\": "src/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
