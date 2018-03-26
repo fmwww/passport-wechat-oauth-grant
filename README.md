@@ -11,6 +11,30 @@ $ composer require fmwww/passport-wechat-oauth-grant
 ```php
 Fmwww\PassportWechatOauthGrant\WechatOauthGrantServiceProvider::class,
 ```
+
+## 配置
+使用之前需要先配置好微信的 `app_id` 和 `app_secret`
+使用下面的命令拷贝配置文件到 `config` :
+
+```sh
+$ php artisan vendor:publish --provider="Fmwww\PassportWechatOauthGrant\WechatOauthGrantServiceProvider"
+```
+
+```php
+return [
+    /*
+     * 微信app_id
+     */
+    'app_id' => env('WECHAT_OAUTH_GRANT_APP_ID', ''),
+    /*
+     * 微信app_secret
+     */
+    'app_secret' => env('WECHAT_OAUTH_GRANT_APP_SECRET', ''),
+];
+```
+> 推荐使用 `.env` 文件进行配置
+
+
 ## 用法
 - 使用**POST**方法去请求`https://your-site.com/oauth/token`
 - **POST**请求体里的需要将**grant_type**设置为**wechat_oauth**，同时将**code**设置为**微信返回的授权code**
@@ -18,7 +42,7 @@ Fmwww\PassportWechatOauthGrant\WechatOauthGrantServiceProvider::class,
 - 如果用户存在，就会成功返回 `access_token` 和 `refresh_token`。
 ### 例子
 #### 请求方法
-```$xslt
+```php
 $http = new GuzzleHttp\Client;
 
 $response = $http->post('http://your-app.com/oauth/token', [
@@ -34,7 +58,7 @@ $response = $http->post('http://your-app.com/oauth/token', [
 return json_decode((string) $response->getBody(), true);
 ```
 #### 自定义 `findForWechatOauth`方法
-```$xslt
+```php
 public function findForWechatOauth($tokens)
     {
         // 获取openid
