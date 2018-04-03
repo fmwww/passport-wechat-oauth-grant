@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-        "laravel/passport": "^2.0",
+        "laravel/passport": "^5.0",
         "guzzlehttp/guzzle": "^6.3.2"
     },
     "autoload": {
